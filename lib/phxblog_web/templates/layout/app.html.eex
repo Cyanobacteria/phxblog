@@ -15,12 +15,29 @@
     <div class="container">
       <header class="header">
         <nav role="navigation">
-          <ul class="nav nav-pills pull-right">
-            <li><a href="http://www.phoenixframework.org/docs">Get Started</a></li>
-          </ul>
+          
+    <%= if Phxblog.Auth.user_signed_in?(@conn) do %>
+      <nav class="my-2 my-md-0 mr-md-3">
+        Signed in as: <strong><%= Phxblog.Auth.current_user(@conn).username %></strong>
+      </nav>
+    <% end %>
+  
+  
+  <%= if Phxblog.Auth.user_signed_in?(@conn) do %>
+    <nav class="my-2 my-md-0 mr-md-3">
+      Signed in as: <strong><%= Phxblog.Auth.current_user(@conn).username %></strong>
+    </nav>
+    <%= link "Sign Out", to: session_path(@conn, :delete), method: :delete, class: "btn btn-outline-primary" %>
+  <% end %>
+  
+  <%= link "Sign In",
+    to: session_path(@conn, :new),
+    class: "btn btn-outline-primary" %>
         </nav>
-        <span class="logo"></span>
+      <!--  <span class="logo"></span> -->
+
       </header>
+
 
       <p class="alert alert-info" role="alert"><%= get_flash(@conn, :info) %></p>
       <p class="alert alert-danger" role="alert"><%= get_flash(@conn, :error) %></p>

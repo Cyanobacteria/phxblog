@@ -18,6 +18,7 @@ defmodule PhxblogWeb.Router do
 
     get "/", PageController, :index
     resources "/sessions", SessionController, only: [:new, :create]
+    delete "/sign out", SessionController, :delete
   end
 
   # Other scopes may use custom stacks.
