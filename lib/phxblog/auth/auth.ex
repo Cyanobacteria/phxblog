@@ -27,7 +27,10 @@ defmodule Phxblog.Auth do
   end
   
   def register(params) do
-    User.registration_changeset(%User{}, params) |> Repo.insert()
+     User.registration_changeset(%User{}, params) |> Repo.insert() 
+     
+    
+    
   end
 
 end

@@ -10,10 +10,12 @@ defmodule PhxblogWeb.RegistrationController do
     case Auth.register(registration_params) do
     {:ok, user} ->
       conn
-      |>put_session(:current_user_id, use.id)
-      |>put_flash(:info, "You have successfully signed up!!")
-      |>redirect(to: room_path(conn, :index))
+      |> put_session(:current_user_id, user.id)
+      |> put_flash(:info, "You have successfully signed up!!")
+      |> redirect(to: page_path(conn, :index))
     {:error, changeset} ->
+      conn
+      |> put_flash(:error, "error!!")
       render(conn, "new.html", changeset: changeset)
 
     end
