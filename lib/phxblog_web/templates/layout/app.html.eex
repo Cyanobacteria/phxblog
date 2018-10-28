@@ -28,11 +28,19 @@
       Signed in as: <strong><%= Phxblog.Auth.current_user(@conn).username %></strong>
     </nav>
     <%= link "Sign Out", to: session_path(@conn, :delete), method: :delete, class: "btn btn-outline-primary" %>
-  <% end %>
+    <% end %>
   
-  <%= link "Sign In",
+    <%= link "Sign In",
     to: session_path(@conn, :new),
     class: "btn btn-outline-primary" %>
+    
+    <%=  
+       link "Sign up",
+       to: registration_path(@conn, :new),
+       class: "btn primary-btn"
+
+       %>
+
         </nav>
       <!--  <span class="logo"></span> -->
 
