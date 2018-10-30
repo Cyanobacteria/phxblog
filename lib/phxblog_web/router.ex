@@ -22,6 +22,12 @@ defmodule PhxblogWeb.Router do
     delete "/sign out", SessionController, :delete
     
     resources "/registrations", RegistrationController, only: [:new, :create]
+    resources "/posts", PostController, except: [:index]
+    #index "/posts", Postcontroller, :view_one
+    get "/posts", Postcontroller, :view_one   
+    get "/posts/all", Postcontroller, :view_all  
+    get "/posts/condition/:condition", Postcontroller, :view_by_condition   
+    
   end
 
   # Other scopes may use custom stacks.

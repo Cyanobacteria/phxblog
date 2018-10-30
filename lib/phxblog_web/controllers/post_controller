@@ -1,0 +1,41 @@
+defmodule PhxblogWeb.PostController do
+  use PhxblogWeb, :controller
+  alias Phxblog.Post
+
+  def view_all(conn,_params) do
+
+  end
+
+  def view_by_condition(conn,params) do
+
+  end
+
+  def view_one(conn,params) do
+ 
+  end 
+
+  def new(conn,_params) do
+
+  end
+
+  def create(conn,_params) do
+
+  end
+
+  def edit(conn,params) do
+
+  end
+
+  def update(conn,params) do
+
+  end
+
+  def    
+
+
+
+
+
+
+
+end
