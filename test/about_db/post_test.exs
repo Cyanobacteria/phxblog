@@ -15,6 +15,21 @@ defmodule Phxblog.PostTest do
   #delete post
   #  insert one and check it available and delete it and check is not avalible
 
+  describe "insert_post/1" do
+    test "insert one post" do
+      post = insert(:post)
+      result = Post.get_post(post.id)
+      assert post.id == result.id
+    end
+  end 
+
+  describe "get_post/1" do
+    test "get the respective post" do
+      post = insert(:post)
+      result = Post.get_post(post.id)
+      assert post.id  == result.id && post.content == result.content
+    end
+  end 
 
 
 end
